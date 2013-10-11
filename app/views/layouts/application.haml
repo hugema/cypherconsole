@@ -1,0 +1,27 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %meta{name: 'viewport', content:'width=device-width, initial-scale=1.0'}
+    %title CypherConsole
+    =stylesheet_link_tag 'bootstrap.css', 'grid.css'
+    /[if lt IE 9]
+      =javascript_include_tag 'html5shiv.js'
+      =javascript_include_tag 'respond.min.js'
+  %body
+    .container
+      .row
+        .col-md-4
+          %form{id: 'form', method: 'post', role: 'form'}
+            .form-group
+              %label{for: 'uri'} Neo4j URL
+              %input.form-control{id: 'uri', name: 'uri', type: 'text'}
+              %label{for: 'query'} Cypher Query
+              %textarea.form-control{id: 'query', name: 'query', rows: 7}= @query
+              %label{for: 'node_id'} Node ID
+              %input.form-control{id: 'node_id', name: 'node_id', type: 'text', value: @node_id}
+              %input.btn.btn-default{type: 'submit', value: 'Run query', id: 'run_query'}
+        .col-md-8
+          #content
+            = yield
+    =javascript_include_tag 'main.js'

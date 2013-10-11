@@ -1,0 +1,21 @@
+body
+{
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+}
+
+.container {
+  max-width: 100%;
+}
+
+[class*="col-"] {
+  padding: 15px;
+}
+
+#content {
+  padding: 10px;
+}
+
+#run_query {
+  margin-top: 10px;
+}
