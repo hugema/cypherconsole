@@ -2,10 +2,15 @@ PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 require 'capybara/rspec'
 require 'capybara/padrino/rspec'
+require 'headless'
 
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
   conf.include Capybara::DSL
+
+  headless = Headless.new
+  headless.start
+  at_exit{ headless.destroy }
 end
 
 # You can use this method to custom specify a Rack app

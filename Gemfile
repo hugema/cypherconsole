@@ -9,4 +9,6 @@ group :test do
   gem 'rack-test', require: 'rack/test'
   gem 'capybara'
   gem 'capybara-padrino'
+  gem 'selenium-webdriver'
+  gem 'headless'
 end
