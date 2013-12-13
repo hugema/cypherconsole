@@ -1,12 +1,17 @@
+require 'json/pure'
+
 module Cypherconsole
   class App < Padrino::Application
     register Padrino::Rendering
     register Padrino::Mailer
     register Padrino::Helpers
 
-    enable :sessions
-
     get :index do render :index end
+    post :index do 
+      cypher = CypherQuery::new(params[:uri], params[:query], params[:parameters])
+      (@data, @error) = cypher.query
+      render :index
+    end
 
     ##
     # Caching support.

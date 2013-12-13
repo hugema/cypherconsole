@@ -18,8 +18,8 @@
               %input.form-control{id: 'uri', name: 'uri', type: 'text'}
               %label{for: 'query'} Cypher Query
               %textarea.form-control{id: 'query', name: 'query', rows: 7}= @query
-              %label{for: 'node_id'} Node ID
-              %input.form-control{id: 'node_id', name: 'node_id', type: 'text', value: @node_id}
+              %label{for: 'parameters'} Parameters (syntax: "name":"value")
+              %textarea.form-control{id: 'parameters', name: 'parameters', rows: 7}= @parameters
               %input.btn.btn-default{type: 'submit', value: 'Run query', id: 'run_query'}
         .col-md-8
           #content

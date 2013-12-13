@@ -1,0 +1,6 @@
+- if @error.to_s != ''
+  %p 
+    = @error
+- if @data.to_s != ''
+  %h2 JSON data
+  %pre~ JSON.pretty_generate(JSON[@data])

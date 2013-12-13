@@ -28,10 +28,9 @@
 #
 #
 Padrino.configure_apps do
-  # enable :sessions
+  enable :sessions
   set :session_secret, (PADRINO_ENV == 'development' || PADRINO_ENV == 'test') ? ('x' * 30) : ENV['SECRET_TOKEN']
   set :protection, true
-  set :protect_from_csrf, true
 end
 
 # Mounts the core application for this project
