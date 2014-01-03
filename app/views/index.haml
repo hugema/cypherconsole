@@ -1,6 +1,26 @@
 - if @error.to_s != ''
   %p 
     = @error
-- if @data.to_s != ''
-  %h2 JSON data
-  %pre~ JSON.pretty_generate(JSON[@data])
+
+%ul.nav.nav-tabs
+  %li.active
+    %a#tab_data{href: '#'}Output
+  %li
+    %a#tab_json{href: '#'}JSON
+
+#data
+  - if @data_columns.to_s != ''
+    %table
+      %tr
+        - @data_columns.each do |col|
+          %th
+            = col
+      - @data_values.each do |tuple|
+        %tr
+          - tuple.each do |element|
+            %td
+              = element
+            
+#json{style: 'display: none'}
+  - if @data.to_s != ''
+    %pre~ JSON.pretty_generate(JSON[@data])

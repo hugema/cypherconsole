@@ -25,8 +25,15 @@ class CypherQuery
       end
       headers = { 'content-type' => 'application/json' }
       u = URI.parse(@uri)
-      json = Net::HTTP.new(u.host, u.port).post(u.path, data, headers).body
+      @json = Net::HTTP.new(u.host, u.port).post(u.path, data, headers).body
+      format
     end
-    return json, error
+    return @json, @data_columns, @data_values, error
+  end
+
+  def format
+    ruby = JSON.parse @json 
+    @data_columns = ruby['columns']
+    @data_values  = ruby['data']
   end
 end

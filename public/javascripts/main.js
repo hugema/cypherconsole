@@ -18,3 +18,15 @@ function init() {
   }
 }
 window.onload = init;
+document.getElementById('tab_json').onclick = function() {
+  document.getElementById('data').style.display = 'none';
+  document.getElementById('json').style.display = 'block';
+  document.getElementById('tab_data').parentNode.classList.remove('active');
+  document.getElementById('tab_json').parentNode.classList.add('active');
+};
+document.getElementById('tab_data').onclick = function() {
+  document.getElementById('json').style.display = 'none';
+  document.getElementById('data').style.display = 'block';
+  document.getElementById('tab_json').parentNode.classList.remove('active');
+  document.getElementById('tab_data').parentNode.classList.add('active');
+};

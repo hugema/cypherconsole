@@ -9,7 +9,7 @@ module Cypherconsole
     get :index do render :index end
     post :index do 
       cypher = CypherQuery::new(params[:uri], params[:query], params[:parameters])
-      (@data, @error) = cypher.query
+      (@data, @data_columns, @data_values, @error) = cypher.query
       render :index
     end
 
